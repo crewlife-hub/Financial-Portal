@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crew Finance Portal</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <h1 class="logo">Crew Finance Portal</h1>
+      <nav class="nav">
+        <a href="#" class="nav-link active" data-page="dashboard">Dashboard</a>
+        <a href="#" class="nav-link" data-page="policies">Policy Matrix</a>
+        <a href="#" class="nav-link" data-page="ready-to-invoice">Ready to Invoice</a>
+        <a href="#" class="nav-link" data-page="invoices">Invoices</a>
+        <a href="#" class="nav-link" data-page="reconciliation">Reconciliation</a>
+      </nav>
+      <div class="header-status">
+        <span id="phase-badge" class="badge">Phase 1</span>
+        <span id="qb-status" class="badge badge-warning">QB: Not Connected</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <!-- Dashboard Page -->
+    <section id="page-dashboard" class="page active">
+      <div class="page-header">
+        <h2>Dashboard</h2>
+        <p>Overview of billing and invoicing status</p>
+      </div>
+      
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3>Pending Approval</h3>
+          <div id="stat-pending" class="stat-value">-</div>
+          <p class="stat-label">Billable events awaiting review</p>
+        </div>
+        <div class="stat-card">
+          <h3>Approved</h3>
+          <div id="stat-approved" class="stat-value">-</div>
+          <p class="stat-label">Ready for invoicing</p>
+        </div>
+        <div class="stat-card">
+          <h3>Outstanding</h3>
+          <div id="stat-outstanding" class="stat-value">-</div>
+          <p class="stat-label">Open invoice balance</p>
+        </div>
+        <div class="stat-card stat-card-warning">
+          <h3>Overdue</h3>
+          <div id="stat-overdue" class="stat-value">-</div>
+          <p class="stat-label">Past due invoices</p>
+        </div>
+      </div>
+
+      <div class="dashboard-grid">
+        <div class="card">
+          <div class="card-header">
+            <h3>Recent Activity</h3>
+          </div>
+          <div class="card-body">
+            <div id="recent-activity" class="activity-list">
+              <p class="loading">Loading...</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-header">
+            <h3>Quick Actions</h3>
+          </div>
+          <div class="card-body">
+            <div class="quick-actions">
+              <button class="btn btn-primary" onclick="App.navigateTo('ready-to-invoice')">
+                Review Pending Events
+              </button>
+              <button class="btn btn-secondary" onclick="App.generateEvents()">
+                Generate from Smartsheet
+              </button>
+              <button class="btn btn-secondary" onclick="App.navigateTo('policies')">
+                View Policy Matrix
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Policy Matrix Page -->
+    <section id="page-policies" class="page">
+      <div class="page-header">
+        <h2>Policy Matrix</h2>
+        <p>Client billing policies and fee structures</p>
+        <button class="btn btn-primary" onclick="App.showAddPolicyModal()">
+          Add Policy
+        </button>
+      </div>
+      
+      <div class="card">
+        <div class="card-body">
+          <table class="data-table" id="policies-table">
+            <thead>
+              <tr>
+                <th>Client Code</th>
+                <th>Client Name</th>
+                <th>Trigger Rule</th>
+                <th>Currency</th>
+                <th>Payment Terms</th>
+                <th>Fee Structure</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="8" class="loading">Loading...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ready to Invoice Page -->
+    <section id="page-ready-to-invoice" class="page">
+      <div class="page-header">
+        <h2>Ready to Invoice</h2>
+        <p>Billable events pending approval</p>
+        <div class="header-actions">
+          <button class="btn btn-secondary" onclick="App.refreshReadyToInvoice()">
+            Refresh
+          </button>
+          <button class="btn btn-primary" onclick="App.approveSelected()">
+            Approve Selected
+          </button>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-body">
+          <table class="data-table" id="ready-to-invoice-table">
+            <thead>
+              <tr>
+                <th><input type="checkbox" id="select-all-events" onchange="App.toggleSelectAll(this)"></th>
+                <th>Idempotency Key</th>
+                <th>Client</th>
+                <th>Control #</th>
+                <th>Candidate</th>
+                <th>Trigger Date</th>
+                <th>Fee Type</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="10" class="loading">Loading...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Invoices Page -->
+    <section id="page-invoices" class="page">
+      <div class="page-header">
+        <h2>Invoices</h2>
+        <p>Invoice tracking and details</p>
+      </div>
+      
+      <div class="filters">
+        <select id="invoice-status-filter" onchange="App.filterInvoices()">
+          <option value="">All Statuses</option>
+          <option value="PENDING">Pending</option>
+          <option value="SENT">Sent</option>
+          <option value="PARTIAL">Partial</option>
+          <option value="PAID">Paid</option>
+          <option value="OVERDUE">Overdue</option>
+        </select>
+      </div>
+      
+      <div class="card">
+        <div class="card-body">
+          <table class="data-table" id="invoices-table">
+            <thead>
+              <tr>
+                <th>Invoice #</th>
+                <th>Client</th>
+                <th>Invoice Date</th>
+                <th>Due Date</th>
+                <th>Amount</th>
+                <th>Balance</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="8" class="loading">Loading...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reconciliation Page -->
+    <section id="page-reconciliation" class="page">
+      <div class="page-header">
+        <h2>Reconciliation</h2>
+        <p>Invoice status and payment reconciliation</p>
+        <div class="header-actions">
+          <button class="btn btn-secondary" onclick="App.syncInvoices()" id="sync-btn">
+            Sync from QuickBooks
+          </button>
+        </div>
+      </div>
+      
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3>Total Outstanding</h3>
+          <div id="recon-outstanding" class="stat-value">-</div>
+        </div>
+        <div class="stat-card stat-card-warning">
+          <h3>Total Overdue</h3>
+          <div id="recon-overdue" class="stat-value">-</div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <h3>Overdue Invoices</h3>
+        </div>
+        <div class="card-body">
+          <table class="data-table" id="overdue-table">
+            <thead>
+              <tr>
+                <th>Invoice #</th>
+                <th>Client</th>
+                <th>Amount</th>
+                <th>Balance</th>
+                <th>Days Overdue</th>
+                <th>Aging</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="6" class="loading">Loading...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal Container -->
+  <div id="modal-container" class="modal-container hidden">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="modal-title">Modal Title</h3>
+        <button class="modal-close" onclick="App.closeModal()">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-body">
+        <!-- Modal content injected here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="/js/utils/api.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
