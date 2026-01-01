@@ -1,0 +1,21 @@
+{
+  "scriptId": "1N4DTU2-mHxjgq7K9vgjFcanYalOC_kdG4YWlS9vZP0_el87Fm98Hy3Jl",
+  "scriptName": "Financial Portal",
+  "description": "Google Apps Script integration for Financial Portal project",
+  "version": "1.0.0",
+  "apiEndpoints": {
+    "financialData": "/api/financial",
+    "invoices": "/api/invoices",
+    "audits": "/api/audit"
+  },
+  "spreadsheetIntegration": {
+    "enabled": true,
+    "syncInterval": 3600000
+  },
+  "features": [
+    "Financial Data Sync",
+    "Invoice Generation",
+    "Audit Logging",
+    "Real-time Updates"
+  ]
+}
