@@ -11,12 +11,13 @@
     "smartsheet": ["who", "when", "eligibility", "internal_status_flags"]
   },
   "customerNames": {
-    "rcg": "TODO: Paste exact QBO Customer name",
-    "qrc": "TODO: Paste exact QBO Customer name",
-    "costa": "TODO: Paste exact QBO Customer name",
-    "seachefs": "TODO: Paste exact QBO Customer name",
-    "cscs": "TODO: Paste exact QBO Customer name",
-    "crystal": "TODO: Paste exact QBO Customer name"
+    "rcg": "Royal Caribbean Group",
+    "qrc": "Quality River Catering",
+    "costa": "Costa Cruises",
+    "seachefsOcean": "Seachefs Cruises LTD",
+    "seachefsRiver": "Sea Chefs River Cruises Ltd",
+    "cscs": "Cruise Ships Catering and Services International N.V.",
+    "crystal": "Crystal Cruises LTD"
   },
   "pinLocation": {
     "customFieldName": "TODO: Confirm field name",

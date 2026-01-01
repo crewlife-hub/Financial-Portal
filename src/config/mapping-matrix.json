@@ -78,58 +78,67 @@
       },
       "customers": {
         "rcg": {
-          "value": null,
+          "value": "Royal Caribbean Group",
           "type": "mapped",
-          "status": "missing",
+          "status": "active",
           "usageCount": 0,
           "lastUsed": null,
-          "updatedAt": null,
-          "updatedBy": null
+          "updatedAt": "2026-01-01",
+          "updatedBy": "user"
         },
         "qrc": {
-          "value": null,
+          "value": "Quality River Catering",
           "type": "mapped",
-          "status": "missing",
+          "status": "active",
           "usageCount": 0,
           "lastUsed": null,
-          "updatedAt": null,
-          "updatedBy": null
+          "updatedAt": "2026-01-01",
+          "updatedBy": "user"
         },
         "costa": {
-          "value": null,
+          "value": "Costa Cruises",
           "type": "mapped",
-          "status": "missing",
+          "status": "active",
           "usageCount": 0,
           "lastUsed": null,
-          "updatedAt": null,
-          "updatedBy": null
+          "updatedAt": "2026-01-01",
+          "updatedBy": "user"
         },
-        "seachefs": {
-          "value": null,
+        "seachefsOcean": {
+          "value": "Seachefs Cruises LTD",
           "type": "mapped",
-          "status": "missing",
+          "status": "active",
           "usageCount": 0,
           "lastUsed": null,
-          "updatedAt": null,
-          "updatedBy": null
+          "updatedAt": "2026-01-01",
+          "updatedBy": "user"
+        },
+        "seachefsRiver": {
+          "value": "Sea Chefs River Cruises Ltd",
+          "type": "mapped",
+          "status": "active",
+          "usageCount": 0,
+          "lastUsed": null,
+          "updatedAt": "2026-01-01",
+          "updatedBy": "user"
         },
         "cscs": {
-          "value": null,
+          "value": "Cruise Ships Catering and Services International N.V.",
           "type": "mapped",
-          "status": "missing",
+          "status": "active",
           "usageCount": 0,
           "lastUsed": null,
-          "updatedAt": null,
-          "updatedBy": null
+          "updatedAt": "2026-01-01",
+          "updatedBy": "user"
         },
         "crystal": {
-          "value": null,
+          "value": "Crystal Cruises LTD",
           "type": "mapped",
-          "status": "missing",
+          "status": "active",
           "usageCount": 0,
           "lastUsed": null,
-          "updatedAt": null,
-          "updatedBy": null
+          "updatedAt": "2026-01-01",
+          "updatedBy": "user"
         }
       }
     }
@@ -148,12 +157,5 @@
       "sources": ["smartsheet"]
     }
   },
-  "missingMappings": [
-    "qbo.customers.rcg",
-    "qbo.customers.qrc",
-    "qbo.customers.costa",
-    "qbo.customers.seachefs",
-    "qbo.customers.cscs",
-    "qbo.customers.crystal"
-  ]
+  "missingMappings": []
 }
