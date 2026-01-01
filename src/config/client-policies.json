@@ -1,0 +1,247 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-01-01",
+  "extractedFrom": "Contract documents Part 1-3",
+  "clients": {
+    "seachefs": {
+      "displayName": "Seachefs",
+      "currency": "EUR",
+      "category": "recruitment_manning",
+      "eligibilityTrigger": "employment_contract_signed",
+      "referralValidityDays": 180,
+      "invoiceCycle": "monthly",
+      "invoiceDueDays": 15,
+      "invoiceEmail": "invoices@seachefs.com",
+      "feeModel": {
+        "ocean": {
+          "type": "one_time_fee",
+          "groups": {
+            "I": 250,
+            "II": 270,
+            "III": 300,
+            "IV": 350,
+            "V": 350,
+            "VI": 600
+          },
+          "rehire": 200
+        },
+        "river": {
+          "type": "daily_rate",
+          "perDay": 1.60
+        }
+      },
+      "refundPolicy": {
+        "ocean": {
+          "probationDays": 90,
+          "refund": "full"
+        },
+        "river": {
+          "refund": "none",
+          "reason": "per_day_billing"
+        }
+      }
+    },
+    "cscs": {
+      "displayName": "CSCS",
+      "currency": "USD",
+      "category": "recruitment_manning",
+      "eligibilityTrigger": "hire_or_rehire",
+      "invoiceDueDays": 30,
+      "feeModel": {
+        "newHire": {
+          "rating": 75,
+          "officer": 90
+        },
+        "rehire": {
+          "type": "daily_rate",
+          "perDay": 1.10
+        }
+      },
+      "refundPolicy": "none_specified",
+      "notes": "No commission if candidate rejected or withdrawn pre-embarkation"
+    },
+    "costa": {
+      "displayName": "Costa",
+      "currency": "EUR",
+      "category": "recruitment_manning",
+      "eligibilityTrigger": "embarked",
+      "invoiceDueDays": 30,
+      "feeModel": {
+        "newHire": {
+          "rating": 150,
+          "officer": 160
+        },
+        "rehire": {
+          "type": "daily_rate",
+          "ratingPerDay": 1.20,
+          "officerPerDay": 1.60
+        }
+      },
+      "refundPolicy": {
+        "rule": "no_embark_no_fee",
+        "description": "If candidate fails to embark, no commission earned"
+      }
+    },
+    "qrc": {
+      "displayName": "QRC",
+      "currency": "USD",
+      "category": "recruitment_manning",
+      "eligibilityTrigger": "30_days_completed",
+      "ctracValidityDays": 180,
+      "offerAcceptanceWindowDays": 7,
+      "invoiceWindowDays": 5,
+      "invoiceDueDays": 75,
+      "invoiceDeadlineDays": 120,
+      "feeModel": {
+        "entryLevel": {
+          "stripes": 0,
+          "fee": 250
+        },
+        "specialty": {
+          "stripes": "1-1.5",
+          "fee": 275
+        },
+        "management": {
+          "stripes": "2+",
+          "fee": "7_percent_annual_salary"
+        },
+        "marineOfficer": "written_agreement_required"
+      },
+      "returningCrew": {
+        "withinMonths": 12,
+        "fee": "no_fee_expenses_only"
+      },
+      "refundPolicy": {
+        "autoNonPayment": [
+          "crew_leaves_before_30_days",
+          "invoice_late_over_120_days"
+        ],
+        "partialFees": false
+      },
+      "riskLevel": "high",
+      "portalEnforcement": ["invoice_deadline_hard_block", "30_day_verification"]
+    },
+    "rcg": {
+      "displayName": "Royal Caribbean Group",
+      "currency": "USD",
+      "category": "recruitment_manning",
+      "eligibilityTrigger": "30_days_completed",
+      "ctracValidityDays": 180,
+      "offerAcceptanceWindowDays": 7,
+      "invoiceWindowDays": 5,
+      "invoiceDueDays": 75,
+      "invoiceDeadlineDays": 120,
+      "feeModel": {
+        "entryLevel": {
+          "stripes": 0,
+          "fee": 250
+        },
+        "specialty": {
+          "stripes": "1-1.5",
+          "fee": 275
+        },
+        "management": {
+          "stripes": "2+",
+          "fee": "7_percent_annual_salary"
+        },
+        "marineOfficer": "written_agreement_required"
+      },
+      "returningCrew": {
+        "withinMonths": 12,
+        "fee": "no_fee"
+      },
+      "refundPolicy": {
+        "autoDisqualification": [
+          "30_day_rule_not_met",
+          "duplicate_invoice",
+          "late_invoice"
+        ]
+      },
+      "auditRetentionYears": 3,
+      "riskLevel": "critical",
+      "portalEnforcement": [
+        "invoice_deadline_hard_block",
+        "30_day_verification",
+        "duplicate_prevention",
+        "audit_trail_required"
+      ],
+      "notes": "Strictest contract - portal must enforce rules automatically"
+    },
+    "crystal": {
+      "displayName": "Crystal Cruises",
+      "currency": "EUR",
+      "category": "recruitment_manning",
+      "eligibilityTrigger": "embarked",
+      "invoiceDueDays": 30,
+      "feeModel": {
+        "groups": {
+          "A": 350,
+          "B": 400,
+          "C": 500,
+          "D": 600,
+          "E": 700
+        },
+        "recuringExamples": [300, 250, 200, 350, 200]
+      },
+      "refundPolicy": {
+        "within30Days": "refund_or_replacement",
+        "tracking": ["replacement_delivered", "refund_issued"]
+      }
+    },
+    "virsec": {
+      "displayName": "Virsec",
+      "currency": "GBP",
+      "category": "affiliate_training",
+      "commissionModel": {
+        "standard": 0.20,
+        "discounted": 0.10
+      },
+      "invoiceCycle": "monthly_arrears",
+      "invoiceDueDays": 30,
+      "sourceOfTruth": "LMS_report",
+      "fxCosts": "borne_by_crew_life",
+      "notes": "Non-recruitment income - separate billing lane"
+    },
+    "maritimeSafetyAcademy": {
+      "displayName": "Maritime Safety Academy",
+      "currency": "ZAR",
+      "category": "training_referral",
+      "commissionRate": 0.10,
+      "vatHandling": "excluded",
+      "paymentDay": 15,
+      "eligibilityTrigger": "training_completed_and_paid",
+      "auditRights": true,
+      "notes": "Payable only when candidate pays full training fee AND completes training"
+    }
+  },
+  "categories": {
+    "recruitment_manning": {
+      "description": "Crew placement fees driven by onboard/days/embarkation",
+      "clients": ["seachefs", "costa", "cscs", "qrc", "rcg", "crystal"]
+    },
+    "affiliate_training": {
+      "description": "LMS sales commission driven by reports",
+      "clients": ["virsec"]
+    },
+    "training_referral": {
+      "description": "Training completion commission",
+      "clients": ["maritimeSafetyAcademy"]
+    }
+  },
+  "globalRules": {
+    "noInvoiceBefore30Days": ["rcg", "qrc"],
+    "hardInvoiceDeadline120Days": ["rcg", "qrc"],
+    "duplicateProtection": {
+      "rule": "same_pin_same_contract_window_block",
+      "applies": "all"
+    },
+    "returningCrewDetection": {
+      "checkHistoricalOnboardDates": true,
+      "applies": ["rcg", "qrc"]
+    },
+    "stripeClassification": {
+      "rule": "fee_depends_on_stripe_not_title",
+      "applies": ["rcg", "qrc"]
+    }
+  }
+}

@@ -1,0 +1,221 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-01-01",
+  "updatedBy": "system",
+  "sheets": {
+    "seaboundMaster": {
+      "name": "CL@S Traveling Seabound 2.0",
+      "sheetId": "6474854984273796",
+      "billingMode": "one_time_fee",
+      "description": "Master travel sheet for one-time fees and general invoice status",
+      "columns": {
+        "invoiceNumber": {
+          "title": "Invoice #",
+          "columnId": "8970750355263364",
+          "type": "TEXT_NUMBER"
+        },
+        "financeStatus": {
+          "title": "$",
+          "columnId": "69104216788868",
+          "type": "PICKLIST",
+          "values": {
+            "yellow": "Invoice Sent / Waiting",
+            "green": "Paid",
+            "blue": "Daily-rate pay"
+          }
+        },
+        "thirtyDayMark": {
+          "title": "30 Day Mark",
+          "columnId": "4467150727892868",
+          "type": "DATE"
+        },
+        "pin": {
+          "title": "Pin",
+          "columnId": "2921892361752452",
+          "type": "TEXT_NUMBER"
+        },
+        "pinKey": {
+          "title": "Pin Key",
+          "columnId": "5598709438697348",
+          "type": "TEXT_NUMBER"
+        },
+        "controlNumber": {
+          "title": "Control Number",
+          "columnId": "1023980673388420",
+          "type": "TEXT_NUMBER"
+        },
+        "email": {
+          "title": "Email",
+          "columnId": "6511789236506500",
+          "type": "TEXT_NUMBER"
+        },
+        "company": {
+          "title": "Company",
+          "columnId": "7988313093525380",
+          "type": "TEXT_NUMBER"
+        },
+        "signOnDate": {
+          "title": "Sign on Date",
+          "columnId": "6926186656255876",
+          "type": "DATE"
+        },
+        "allSignOnDates": {
+          "title": "All Sign on Dates",
+          "columnId": "5173692175437700",
+          "type": "TEXT_NUMBER"
+        },
+        "departureDate": {
+          "title": "Departure Date",
+          "columnId": "8943051180035972",
+          "type": "DATE"
+        }
+      }
+    },
+    "costaDailyRate": {
+      "name": "Travelling Seabound Day Count Costa",
+      "sheetId": "2691619355578244",
+      "billingMode": "daily_rate",
+      "client": "Costa",
+      "description": "Daily-rate ledger for Costa rehire billing",
+      "columns": {
+        "invoiceNumber": {
+          "title": "Invoice #",
+          "columnId": "5494596410494852",
+          "type": "TEXT_NUMBER"
+        },
+        "invoiceNumberAlt": {
+          "title": "Invoice Number",
+          "columnId": "4203398878154628",
+          "type": "TEXT_NUMBER"
+        },
+        "otfStatus": {
+          "title": "OTF Status",
+          "columnId": "6247030216937348",
+          "type": "TEXT_NUMBER"
+        },
+        "statusPayment": {
+          "title": "Status Payment",
+          "columnId": "3242796596809604",
+          "type": "TEXT_NUMBER"
+        },
+        "paymentDate": {
+          "title": "Payment Date",
+          "columnId": "709521806413700",
+          "type": "DATE"
+        },
+        "dailyRate": {
+          "title": "Daily Rate",
+          "columnId": "6057546363916164",
+          "type": "TEXT_NUMBER"
+        },
+        "daysOnboard": {
+          "title": "Days Onboard",
+          "columnId": "8309346177601412",
+          "type": "TEXT_NUMBER"
+        },
+        "totalForMonth": {
+          "title": "Total For Month of",
+          "columnId": "7746396224180100",
+          "type": "TEXT_NUMBER"
+        },
+        "fromDate": {
+          "title": "From Date",
+          "columnId": "3805746550230916",
+          "type": "DATE"
+        },
+        "toDate": {
+          "title": "To Date",
+          "columnId": "990996783124356",
+          "type": "DATE"
+        },
+        "pin": {
+          "title": "Pin",
+          "columnId": "6339021340626820",
+          "type": "TEXT_NUMBER"
+        },
+        "controlNumber": {
+          "title": "Control Number",
+          "columnId": "8719155179769732",
+          "type": "TEXT_NUMBER"
+        },
+        "email": {
+          "title": "Email",
+          "columnId": "5213121433784196",
+          "type": "TEXT_NUMBER"
+        },
+        "projectedDate": {
+          "title": "Projected Date",
+          "columnId": "4931646457073540",
+          "type": "DATE"
+        },
+        "signOffDate": {
+          "title": "Sign Off Date",
+          "columnId": "1553946736545668",
+          "type": "DATE"
+        }
+      }
+    },
+    "seachefsRiverDailyRate": {
+      "name": "Travelling Riverbound Day Count Secs",
+      "sheetId": "1711381033209732",
+      "billingMode": "daily_rate",
+      "client": "Seachefs",
+      "vesselType": "river",
+      "description": "Daily-rate ledger for Seachefs River vessels",
+      "columns": {
+        "invoiceNumber": {
+          "title": "Invoice #",
+          "columnId": "2583191501885316",
+          "type": "TEXT_NUMBER"
+        },
+        "statusPayment": {
+          "title": "Status Payment",
+          "columnId": "1490114162937732",
+          "type": "TEXT_NUMBER"
+        },
+        "paymentDate": {
+          "title": "Payment Date",
+          "columnId": "3632166959009668",
+          "type": "DATE"
+        },
+        "dailyRate": {
+          "title": "Daily Rate",
+          "columnId": "2506267052167044",
+          "type": "TEXT_NUMBER"
+        },
+        "daysOnboard": {
+          "title": "Days Onboard",
+          "columnId": "1380367145324420",
+          "type": "TEXT_NUMBER"
+        },
+        "totalForMonth": {
+          "title": "Total For Month of",
+          "columnId": "8986264466050948",
+          "type": "TEXT_NUMBER"
+        },
+        "fromDate": {
+          "title": "From Date",
+          "columnId": "1433758420651908",
+          "type": "DATE"
+        },
+        "toDate": {
+          "title": "To Date",
+          "columnId": "5937358048022404",
+          "type": "DATE"
+        },
+        "pin": {
+          "title": "Pin",
+          "columnId": "1013454934331268",
+          "type": "TEXT_NUMBER"
+        },
+        "email": {
+          "title": "Email",
+          "columnId": "6080004515123076",
+          "type": "TEXT_NUMBER"
+        }
+      }
+    }
+  },
+  "identifierPriority": ["pin", "controlNumber", "email"],
+  "notes": "All column IDs are stored permanently. Never ask user to paste again."
+}

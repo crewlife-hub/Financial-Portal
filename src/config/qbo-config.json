@@ -1,0 +1,49 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-01-01",
+  "reconciliationWorkbook": {
+    "spreadsheetId": "1ZbWxjkemOxOHNN1r3SzauZXE75oxqTHLG0tPoyDC9V0",
+    "primaryTab": "Data",
+    "description": "QBO reconciliation workbook - single source of financial truth"
+  },
+  "truthSource": {
+    "qbo": ["invoices", "payments", "balances"],
+    "smartsheet": ["who", "when", "eligibility", "internal_status_flags"]
+  },
+  "customerNames": {
+    "rcg": "TODO: Paste exact QBO Customer name",
+    "qrc": "TODO: Paste exact QBO Customer name",
+    "costa": "TODO: Paste exact QBO Customer name",
+    "seachefs": "TODO: Paste exact QBO Customer name",
+    "cscs": "TODO: Paste exact QBO Customer name",
+    "crystal": "TODO: Paste exact QBO Customer name"
+  },
+  "pinLocation": {
+    "customFieldName": "TODO: Confirm field name",
+    "memo": true,
+    "lineDescription": true
+  },
+  "invoiceStructure": {
+    "onePerCrew": true,
+    "batchedMonthly": false,
+    "notes": "Confirm: One invoice per crew or batched monthly"
+  },
+  "syncConfig": {
+    "pageSize": 100,
+    "pageDelayMs": 200,
+    "daysBack": 365
+  },
+  "headers": {
+    "invoices": [
+      "InvoiceId", "CustomerName", "TxnDate", "DueDate", "TotalAmt",
+      "Balance", "CurrencyRef", "DocNumber", "PrivateNote", "CreatedAt"
+    ],
+    "payments": [
+      "PaymentId", "CustomerName", "TxnDate", "TotalAmt", "UnappliedAmt",
+      "CurrencyRef", "PrivateNote", "CreatedAt"
+    ],
+    "invoiceLines": [
+      "InvoiceId", "LineId", "Description", "Amount", "ItemRef", "Qty", "Rate"
+    ]
+  }
+}

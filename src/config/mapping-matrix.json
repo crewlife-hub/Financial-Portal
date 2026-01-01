@@ -1,0 +1,159 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-01-01",
+  "description": "Mapping Matrix system - tracks hardcoded vs mapped fields, usage counts, and update history",
+  "mappings": {
+    "smartsheet": {
+      "seaboundMaster": {
+        "sheetId": {
+          "value": "6474854984273796",
+          "type": "hardcoded",
+          "usageCount": 0,
+          "lastUsed": null,
+          "updatedAt": "2026-01-01",
+          "updatedBy": "system"
+        },
+        "financeStatusColumn": {
+          "value": "69104216788868",
+          "type": "hardcoded",
+          "usageCount": 0,
+          "lastUsed": null,
+          "updatedAt": "2026-01-01",
+          "updatedBy": "system"
+        },
+        "invoiceColumn": {
+          "value": "8970750355263364",
+          "type": "hardcoded",
+          "usageCount": 0,
+          "lastUsed": null,
+          "updatedAt": "2026-01-01",
+          "updatedBy": "system"
+        },
+        "pinColumn": {
+          "value": "2921892361752452",
+          "type": "hardcoded",
+          "usageCount": 0,
+          "lastUsed": null,
+          "updatedAt": "2026-01-01",
+          "updatedBy": "system"
+        },
+        "controlNumberColumn": {
+          "value": "1023980673388420",
+          "type": "hardcoded",
+          "usageCount": 0,
+          "lastUsed": null,
+          "updatedAt": "2026-01-01",
+          "updatedBy": "system"
+        }
+      },
+      "costaDailyRate": {
+        "sheetId": {
+          "value": "2691619355578244",
+          "type": "hardcoded",
+          "usageCount": 0,
+          "lastUsed": null,
+          "updatedAt": "2026-01-01",
+          "updatedBy": "system"
+        }
+      },
+      "seachefsRiver": {
+        "sheetId": {
+          "value": "1711381033209732",
+          "type": "hardcoded",
+          "usageCount": 0,
+          "lastUsed": null,
+          "updatedAt": "2026-01-01",
+          "updatedBy": "system"
+        }
+      }
+    },
+    "qbo": {
+      "reconciliationSheet": {
+        "value": "1ZbWxjkemOxOHNN1r3SzauZXE75oxqTHLG0tPoyDC9V0",
+        "type": "hardcoded",
+        "usageCount": 0,
+        "lastUsed": null,
+        "updatedAt": "2026-01-01",
+        "updatedBy": "system"
+      },
+      "customers": {
+        "rcg": {
+          "value": null,
+          "type": "mapped",
+          "status": "missing",
+          "usageCount": 0,
+          "lastUsed": null,
+          "updatedAt": null,
+          "updatedBy": null
+        },
+        "qrc": {
+          "value": null,
+          "type": "mapped",
+          "status": "missing",
+          "usageCount": 0,
+          "lastUsed": null,
+          "updatedAt": null,
+          "updatedBy": null
+        },
+        "costa": {
+          "value": null,
+          "type": "mapped",
+          "status": "missing",
+          "usageCount": 0,
+          "lastUsed": null,
+          "updatedAt": null,
+          "updatedBy": null
+        },
+        "seachefs": {
+          "value": null,
+          "type": "mapped",
+          "status": "missing",
+          "usageCount": 0,
+          "lastUsed": null,
+          "updatedAt": null,
+          "updatedBy": null
+        },
+        "cscs": {
+          "value": null,
+          "type": "mapped",
+          "status": "missing",
+          "usageCount": 0,
+          "lastUsed": null,
+          "updatedAt": null,
+          "updatedBy": null
+        },
+        "crystal": {
+          "value": null,
+          "type": "mapped",
+          "status": "missing",
+          "usageCount": 0,
+          "lastUsed": null,
+          "updatedAt": null,
+          "updatedBy": null
+        }
+      }
+    }
+  },
+  "identifiers": {
+    "pin": {
+      "priority": 1,
+      "sources": ["smartsheet", "qbo_memo", "qbo_line_description", "qbo_custom_field"]
+    },
+    "controlNumber": {
+      "priority": 2,
+      "sources": ["smartsheet"]
+    },
+    "email": {
+      "priority": 3,
+      "sources": ["smartsheet"]
+    }
+  },
+  "missingMappings": [
+    "qbo.customers.rcg",
+    "qbo.customers.qrc",
+    "qbo.customers.costa",
+    "qbo.customers.seachefs",
+    "qbo.customers.cscs",
+    "qbo.customers.crystal"
+  ]
+}
