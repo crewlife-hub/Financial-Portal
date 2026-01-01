@@ -126,3 +126,22 @@ function runFullReconciliation() {
     }
   }
 }
+
+/**
+ * Web app entry point (handles HTTP GET requests)
+ * If deployed as web app, displays info page
+ */
+function doGet(e) {
+  return HtmlService.createHtmlOutput(
+    '<h1>🚢 Crew Finance Portal</h1>' +
+    '<p><strong>Status:</strong> Running</p>' +
+    '<p>This is an <strong>attached script</strong> in a Google Sheet.</p>' +
+    '<p><strong>How to use:</strong></p>' +
+    '<ol>' +
+    '<li>Open your Financial Portal Google Sheet</li>' +
+    '<li>Go to Extensions → Apps Script</li>' +
+    '<li>Click the menu to run Financial Portal workflows</li>' +
+    '</ol>' +
+    '<p>Deployment: ' + (e ? 'Web App' : 'Sheet Script') + '</p>'
+  );
+}
